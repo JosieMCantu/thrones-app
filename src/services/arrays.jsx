@@ -146,5 +146,5 @@ const myfunction = (obj) => {
 const thisFunction = (obj) => {
   
 }
-console.log(thisFunction(input))
+//console.log(thisFunction(input))
 

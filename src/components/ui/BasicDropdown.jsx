@@ -16,11 +16,10 @@ const BasicDropdown = ({ data, currentItem, handleSetExpanded }) => {
         const id = data.id;
         handleSetExpanded(id);
     };
-    //console.log('isopen', isOpen)
+    
     return (
         <>
-        <div>
-            
+        <div className={styles.dropdownwrapper}>
             <div className={styles.dropdown}>
                 <ul onClick={toggleSelf} className={isOpen ? "dropdown active" : "dropdown"}>
                     <li>{headerIcon}</li>
@@ -28,7 +27,7 @@ const BasicDropdown = ({ data, currentItem, handleSetExpanded }) => {
                 </ul>
             </div>
             
-            <div>
+            <div className={styles.itemswrapper}>
                 {currentItem === data.id 
                 ? (<div className={styles.dropdownitems}>{data.content}</div>) 
                 : null}
