@@ -16,28 +16,25 @@ ul {
   margin: 10px;
   padding: 10px;
 }
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .imglist img {
   width: auto;
   height: 100px;
   border: 2px solid black;
 }
 
-/* DARK MODE */
+/***********************/
+/* THEME CHANGES */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  /* border: 1px solid chartreuse; */
+}
 .switch {
   position: relative;
-  display: inline-block;
   height: 34px;
   width: 60px;
-}
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
 }
 .slider {
   position: absolute;
@@ -78,39 +75,140 @@ input:checked + .slider:before {
   background-color: black;
 }
 
+/***********************/
+/* SECOND NAV */
+.secondnav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 10;
+  margin: 0px;
+  /* border: 3px solid red; */
+}
+.secondnav li {
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid hotpink; */
+  width: 33%;
+}
+
+/***********************/
+/* Color Picker */
+.colorpicker {
+  width: 50%;
+  /* border: 1px solid chartreuse; */
+}
+.colorcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.colorcontainer button {
+  height: 40px;
+  width: 100px;
+}
+
+/***********************/
+/* Color Scroll */
+.colorscroll {
+  width: 50%;
+  /* border: 1px solid chartreuse; */
+}
+
+
+/***********************/
 /* DROP DOWN */
 .arrow {
   height: 20px;
   width: auto;
 }
-.menuwrapper {
+.dropdown {
+  position: relative;
+  /* top: 50px; */
+  margin: 0 auto;
+  height: 50px;
+  width: 100%;
+  border: 1px solid #666;
+  background: #475154;
+  cursor: pointer;
+  border: 1px solid red;
+}
+.dropdown:active .dropdownitems {
+  visibility: visible;
+  border-top: 1px solid #666;
+  height: 50px;
+  max-height: 500px;
+  /* opacity: 1; */
+  transition: all 6s ease;
+  transition-delay: 6s;
+  margin-top: 10px;
+ }
+ .dropdownitems {
+  position: relative;
+  visibility: visible;
+  /* opacity: 0; */
+  height: 50px;
+  transition: all 6s ease;
+  transition-delay: 6s;
+  background-color: limegreen;
+ }
+
+
+
+
+
+/* I need transition and transform to to be triggered from the button onClick */
+
+/* -webkit-transition: .8s;
+  transition: .8s; */
+ /* -webkit-transform: translateY(26px);
+ -ms-transform: translateY(26px);
+ transform: translateY(26px); */
+
+
+
+
+ /* .menuwrapper {
   width: 100%;
   font-size: large;
   font-family: monospace;
-  display: flex;
-  flex-direction: column;
-  border: mediumspringgreen 1px solid;
+  border: 1px solid red;
+}
+.dropdown {
+  width: 100%;
+  border: 1px solid black;
 }
 .trigger {
-  display: flex;
-  padding: 10px;
+  width: 100%;
   background: lightslategray;
   color: black;
   font-size: large;
   font-family: monospace;
-  width: 100%;
+  cursor: pointer;
+  display: flex;
   justify-content: center;
+  background-color: mediumspringgreen;
+  border-top: mediumspringgreen 1px solid;
+}
+.trigger ul {
+  list-style-type: none;
+  width: 10%;
+  align-items: center;
+  justify-content: left;
+  background-color: purple;
+  border: 1px solid purple;
+}
+.trigger li {
+  padding: 3px;
+  background-color: red;
+  border: 3px solid red;
 }
 .listitem {
   width: 100%;
-  height: 50px;
   text-align: center;
-}
-/* I need transition and transform to to be triggered from the button onClick */
-/* .trigger:hover {
-  -webkit-transition: .8s;
-  transition: .8s;
-  -webkit-transform: translateY(50px);
-  -ms-transform: translateY(50px);
-  transform: translateY(50px);
+  margin-top: 10px;
+  transition: .8s ease;
+  background-color: hotpink;
 } */

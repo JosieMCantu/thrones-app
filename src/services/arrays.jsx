@@ -56,7 +56,7 @@ export const games = [
   { id: 5, name: 'Dracula', company: 'Fantasy Flight', votes: 2 }
 ];
 
-export const arrays = [
+export const moneys = [
   ["$6"],
   ["$12"],
   ["$25"],
@@ -86,13 +86,65 @@ const groupedByDateHighs = Object.keys(groupedByCountry).map((country) => {
 // finds the highest votes
 const maxGame = games.reduce((max, game) => max.votes > game.votes ? max : game);
 
-const merged = [].concat.apply([], arrays);
-const array3 = [...games, ...arrays];
+const merged = [].concat.apply([], moneys);
+const array3 = [...games, ...moneys];
+const array4 = games.concat(moneys);
 
-// console.log('date', groupByDate);
-// console.log('country', groupedByCountry);
-// console.log('sortedByDate', groupedByDate);
-// console.log('maxGame', maxGame);
-// console.log('merged arrays', merged);
-// console.log('array3 merged', array3);
+//console.log('merged arrays', merged);
+//console.log('array3 merged', array3);
+//console.log('array4 merged', array4);
+
+
+
+// Please write a function that accepts an object. 
+// We'll just be using this object as a container for key value pairs.
+// The function should return a new object with the same data, but with the keys and values swapped.
+// Since the returned object might have multiple values for the same key, it should put the values in an array.
+
+// sample input: {"key1": "valueA", "key2": "valueA", "key3": "valueB"}
+// sample output: {"valueA": ["key1", "key2"], "valueB": ["key3"]}
+
+const input = {
+  "key1": "valueA", 
+  "key2": "valueA", 
+  "key3": "valueB",
+};
+
+const newFunction = (obj) => {
+  const swapped = Object.entries(obj).reduce((acc, val) => {
+    acc[val[1]] 
+    ? acc[val[1]] = [...acc[val[1]], val[0]]
+    : acc[val[1]] = [val[0]];
+    return acc
+  }, {})
+  return swapped
+}
+// console.log(newFunction(input))
+
+const myfunction = (obj) => {
+  const swapped = Object.entries(obj).map(([key, val]) => {
+    return [val, key]
+  });
+  //returns an array of arrays 
+  const mixed = swapped.reduce((acc, val) => {
+    //make the acc equal the first item of the first array, hence val[0]
+    acc[val[0]] 
+    ? acc[val[0]] = [...acc[val[0]], val[1]] 
+    //if the first items match spread the acc and add the arrays second item, hence val[1]
+    : acc[val[0]] = [val[1]]
+    //if they do not match make a new key value pair
+    return acc;
+    //return an object
+  }, {})
+  return mixed;
+}
+// console.log('my function', myfunction(input));
+
+//Please write a function that 
+// (http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?
+
+const thisFunction = (obj) => {
+  
+}
+console.log(thisFunction(input))
 
