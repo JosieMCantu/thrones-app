@@ -54,7 +54,7 @@ ul {
   left: 4px;
   bottom: 4px;
   top: 2px;
-  background-color: mediumspringgreen;
+  background-color: purple;
   border: 1px solid black;
   -webkit-transition: .8s;
   transition: .8s;
@@ -80,24 +80,27 @@ input:checked + .slider:before {
 .secondnav {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   list-style-type: none;
-  padding: 10;
-  margin: 0px;
+  padding: 10px;
+  margin-top: 10px;
   /* border: 3px solid red; */
 }
 .secondnav li {
   display: flex;
   justify-content: center;
+  width: 25%;
+  padding: 5px;
+  background-color: rgba(221, 199, 221, 0.5);
+  border-style: dotted;
   /* border: 1px solid hotpink; */
-  width: 33%;
 }
 
 /***********************/
 /* Color Picker */
 .colorpicker {
-  width: 50%;
+  width: 100%;
   /* border: 1px solid chartreuse; */
 }
 .colorcontainer {
@@ -106,15 +109,20 @@ input:checked + .slider:before {
   justify-content: space-around;
 }
 .colorcontainer button {
-  height: 40px;
+  height: 50px;
   width: 100px;
 }
+
 
 /***********************/
 /* Color Scroll */
 .colorscroll {
-  width: 50%;
+  width: 100%;
   /* border: 1px solid chartreuse; */
+}
+.colorscroll button {
+  height: 50px;
+  width: 100px;
 }
 
 
@@ -125,16 +133,16 @@ input:checked + .slider:before {
   width: auto;
 }
 .dropdownwrapper {
-  border: 1px solid #666;
+  border-top: 1px solid purple;
   background: lightslategray;
+  cursor: pointer;
 }
 .dropdown {
   display: flex;
-  position: relative;
+  justify-content: center;
   margin: 0 auto;
   height: 50px;
   width: 20%;
-  cursor: pointer;
   /* border: 1px solid red; */
 }
 .dropdown li {
@@ -144,8 +152,8 @@ input:checked + .slider:before {
 .dropdown:active .dropdownitems {
   visibility: visible;
   height: 20%;
-  /* transition: 6s ease;
-  transition-delay: 6s; */
+  transition: 6s ease;
+  transition-delay: 6s;
   margin-top: 10px;
  }
  .itemswrapper {
@@ -157,8 +165,8 @@ input:checked + .slider:before {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  visibility: visible;
+  /* position: relative; */
+  /* visibility: visible; */
   height: 50px;
   width: 100%;
   transition: height 6s ease-out;
@@ -167,59 +175,57 @@ input:checked + .slider:before {
  }
 
 
-
-
-
-/* I need transition and transform to to be triggered from the button onClick */
-
-/* -webkit-transition: .8s;
-  transition: .8s; */
- /* -webkit-transform: translateY(26px);
- -ms-transform: translateY(26px);
- transform: translateY(26px); */
-
-
-
-
- /* .menuwrapper {
-  width: 100%;
-  font-size: large;
-  font-family: monospace;
-  border: 1px solid red;
-}
-.dropdown {
-  width: 100%;
-  border: 1px solid black;
-}
-.trigger {
-  width: 100%;
-  background: lightslategray;
-  color: black;
-  font-size: large;
-  font-family: monospace;
-  cursor: pointer;
+/***********************/
+/* TRAFFIC LIGHT */
+.trafficlight {
   display: flex;
-  justify-content: center;
-  background-color: mediumspringgreen;
-  border-top: mediumspringgreen 1px solid;
-}
-.trigger ul {
-  list-style-type: none;
-  width: 10%;
+  flex-direction: column;
   align-items: center;
-  justify-content: left;
-  background-color: purple;
-  border: 1px solid purple;
 }
-.trigger li {
-  padding: 3px;
-  background-color: red;
-  border: 3px solid red;
-}
-.listitem {
-  width: 100%;
+.lightwrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   text-align: center;
-  margin-top: 10px;
-  transition: .8s ease;
-  background-color: hotpink;
-} */
+  width: 200px;
+  height: 350px;
+}
+.trafficlightcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 250px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: black;
+}
+.white {
+  background-color: white;
+  height: 65px;
+  width: 65px;
+  border-radius: 50px;
+}
+.red {
+  background-color: #f00;
+  height: 65px;
+  width: 65px;
+  border-radius: 50px;
+}
+.yellow {
+  background-color: yellow;
+  height: 65px;
+  width: 65px;
+  border-radius: 50px;
+}
+.green {
+  background-color: green;
+  height: 65px;
+  width: 65px;
+  border-radius: 50px;
+}
+.trafficlight button {
+  height: 50px;
+  width: 100px;
+}

@@ -3,9 +3,10 @@ import CharactersList from '../components/charcters/CharactersList';
 import { fetchCharacters } from '../services/thronesApi';
 import styles from '../components/app/App.css';
 import BasicDropdown from '../components/ui/BasicDropdown';
-import { menus } from '../services/arrays';
+import { menus, colors } from '../services/arrays';
 import ColorPicker from '../components/ui/ColorPicker';
 import ColorScroll from '../components/ui/ColorScroll';
+import TrafficLight from '../components/ui/TrafficLight';
 
 
 const CharactersContainer = () => {
@@ -41,6 +42,15 @@ const CharactersContainer = () => {
             setCurrentItem(id);
         }
     };
+    
+    const handleColorChange = (number) => {
+        const findColor = colors.map((item) => {
+            if(number === item.id){
+             setColorPicker(item.hex);
+             setCurrentColor(number);
+            }
+        })
+    }
 
     const onChange = ({ target }) => {
         if (target.value !== 'light') {
@@ -61,53 +71,7 @@ const CharactersContainer = () => {
     if (loading) {
         return <h1>Loading...</h1>
     }
-    const colors = [
-            {
-                'id': 1,
-                'color': 'Red',
-                'hex': '#CC0000'
-            },
-            {
-                'id': 2,
-                'color': 'Blue',
-                'hex': '#008693'
-            },
-            {
-                'id': 3,
-                'color': 'Green',
-                'hex': '#BABC48'
-            },
-            {
-                'id': 4,
-                'color': 'Yellow',
-                'hex': '#FFA700'
-            },
-            {
-                'id': 5,
-                'color': 'Pink',
-                'hex': '#FFCCDD'
-            },
-            {
-                'id': 6,
-                'color': 'Orange',
-                'hex': '#FFA500'
-            },
-            {
-                'id': 7,
-                'color': 'Seafoam',
-                'hex': '#A3E4D7'
-            },
-    ];
-    const handleColorChange = (number) => {
-        const findColor = colors.map((item) => {
-            if(number === item.id){
-             setColorPicker(item.hex);
-             setCurrentColor(number);
-            }
-        })
-    }
     
-
     return (
         <div className={styles}>
             {/* npm run start http://localhost:7891/ */}
@@ -119,7 +83,7 @@ const CharactersContainer = () => {
                     currentItem={currentItem}
                     data={menu} />
             })}
-            <br /><br />
+            
             <ul className={styles.secondnav}>
                 <li>
                     <div className={styles.colorscroll}>
@@ -127,6 +91,21 @@ const CharactersContainer = () => {
                     <ColorScroll
                         colorScroll={colorScroll}
                         handleColorScroll={handleColorScroll} />
+                    </div>
+                </li>
+                <li>
+                    <div className={styles.trafficlight}>
+                    <h2>Traffic Light Demo</h2>
+                    <TrafficLight />
+                    </div>
+                </li>
+                <li>
+                    <div className={styles.colorpicker}>
+                    <h2>Change the colors</h2>
+                    <ColorPicker 
+                        currentColor={currentColor}
+                        colorPicker={colorPicker} 
+                        handleColorChange={handleColorChange} />
                     </div>
                 </li>
                 <li>
@@ -138,19 +117,8 @@ const CharactersContainer = () => {
                         </label>
                     </div>
                 </li>
-                
-                <li>
-                    <div className={styles.colorpicker}>
-                    <h2>Change the color</h2>
-                    <ColorPicker 
-                        currentColor={currentColor}
-                        colorPicker={colorPicker} 
-                        handleColorChange={handleColorChange} />
-                    </div>
-                </li>
             </ul>
             
-            <br/><br/>
             <CharactersList theme={theme} characters={characters} />
 
         </div>

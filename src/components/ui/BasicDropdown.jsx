@@ -4,8 +4,6 @@ import up from '../../assets/up-arrow.png';
 import down from '../../assets/down-arrow.png';
 
 const BasicDropdown = ({ data, currentItem, handleSetExpanded }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
 
     const headerIcon = currentItem === data.id
         ? (<img className={styles.arrow} src={up} alt='Up' />)
@@ -19,9 +17,9 @@ const BasicDropdown = ({ data, currentItem, handleSetExpanded }) => {
     
     return (
         <>
-        <div className={styles.dropdownwrapper}>
+        <div onClick={toggleSelf} className={styles.dropdownwrapper}>
             <div className={styles.dropdown}>
-                <ul onClick={toggleSelf} className={isOpen ? "dropdown active" : "dropdown"}>
+                <ul>
                     <li>{headerIcon}</li>
                     <li>{data.title}</li>
                 </ul>
@@ -29,7 +27,7 @@ const BasicDropdown = ({ data, currentItem, handleSetExpanded }) => {
             
             <div className={styles.itemswrapper}>
                 {currentItem === data.id 
-                ? (<div className={styles.dropdownitems}>{data.content}</div>) 
+                ? (<div className={styles.dropdownitems} aria-expanded={!isOpen}>{data.content}</div>) 
                 : null}
             </div>
             
@@ -39,16 +37,4 @@ const BasicDropdown = ({ data, currentItem, handleSetExpanded }) => {
 };
 export default BasicDropdown;
 
-            {/* <ul>
-                <li><button onClick={toggleSelf} className={styles.trigger}></button>
-                    <ul>
-                        <li>{headerIcon}</li>
-                        <li>{data.title}</li>
-                    </ul>
-
-                </li>
-            </ul> */}
-            // <label className={styles.dropdown}>
-            //     <input className={styles.trigger} type='button' onClick={toggleSelf} value={data.title} />
-            // </label>
             
