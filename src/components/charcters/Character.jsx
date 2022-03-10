@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from '../app/App.css';
 
-function Character({image, firstName, title, theme}) {
+function Character({image, firstName, title}) {
     return (
         <span>
           <img src={image} alt={firstName} />

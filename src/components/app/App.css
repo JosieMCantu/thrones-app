@@ -31,11 +31,14 @@ ul {
   width: 50%;
   /* border: 1px solid chartreuse; */
 }
-.switch {
+
+/* this is the label */
+.switch { 
   position: relative;
   height: 34px;
   width: 60px;
 }
+/* this is the grey span */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -44,8 +47,11 @@ ul {
   right: 0;
   bottom: 0;
   background-color: lightslategray;
-  border: 1px solid black;
+  border: 1px solid red;
 }
+/* this is the inside square */
+/* :before has no content just makes space*/
+/* The CSS :before selector allows you to add content before a selected element. */
 .slider:before {
   position: absolute;
   content: "";
@@ -55,11 +61,12 @@ ul {
   bottom: 4px;
   top: 2px;
   background-color: purple;
-  border: 1px solid black;
+  border: 1px solid blue;
   -webkit-transition: .8s;
   transition: .8s;
   /*this controls speed of transition*/
 }
+/* CSS adjacent selector will select only the element that is immediately preceded by the former element. */
 input:checked + .slider {
   background-color: black;
 }
@@ -68,6 +75,8 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+
 .light {
   background-color: lightslategray;
 }
@@ -165,8 +174,6 @@ input:checked + .slider:before {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* position: relative; */
-  /* visibility: visible; */
   height: 50px;
   width: 100%;
   transition: height 6s ease-out;

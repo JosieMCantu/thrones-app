@@ -10,7 +10,6 @@ const BasicDropdown = ({ data, currentItem, handleSetExpanded }) => {
         : (<img className={styles.arrow} src={down} alt='Down' />);
 
     const toggleSelf = () => {
-        setIsOpen(true);
         const id = data.id;
         handleSetExpanded(id);
     };
@@ -27,7 +26,7 @@ const BasicDropdown = ({ data, currentItem, handleSetExpanded }) => {
             
             <div className={styles.itemswrapper}>
                 {currentItem === data.id 
-                ? (<div className={styles.dropdownitems} aria-expanded={!isOpen}>{data.content}</div>) 
+                ? (<div className={styles.dropdownitems}>{data.content}</div>) 
                 : null}
             </div>
             
